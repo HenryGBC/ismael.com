@@ -1,0 +1,34 @@
+{% extends 'recetas.html' %}
+{% block content %}
+ <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Ver platos</button>
+          </p>
+          <div class="jumbotron">
+            
+            <h1>Mis Recetas</h1>
+            <p>En esta sección quiero compartir con ustedes todos los ingredientes de mis ppplatos, para que a los tengan en cuenta a la hora de hacer sus pedidos</p>
+          </div>
+          <div class="row" id="platos_recetas_sopas">
+            <div id="imgPlato" class=".col-md-3 .col-md-pull-9">
+              <img class="img-thumbnail" src="{{ MEDIA_URL }}{{ plato.img }}" alt="Generic placeholder image" >
+
+            </div>
+            <div id="plato" class=".col-md-9 .col-md-push-3">
+              
+              <h3><strong>{{plato.nombre}}</strong></h3>
+              <p>{{plato.descripcion}} </p>
+              <h2><strong>Ingredientes:</strong></h2>
+
+              <ul>
+                {% for i in ingredientes %}
+                <li>{{i.nombre}} {{i.cantidad}} {{i.unidad}}</li>
+                {% endfor %}
+              </ul>
+              <p><a class="btn btn-success" href ="{% url "recetas" slug_tipo %}"role="button">&laquo; Volver </a></p>
+            </div><!--/span-->
+            
+            
+          </div><!--/row-->
+        </div><!--/span-->
+{% endblock %}

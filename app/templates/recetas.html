@@ -36,11 +36,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="/">Ismael en la Web</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="#about">Menú del domingo</a></li>
             <li class ="active"><a href="#contact">Mis Recetas</a></li>
           </ul>
@@ -51,60 +51,15 @@
     <div class="container">
 
       <div class="row row-offcanvas row-offcanvas-right">
-
-        <div class="col-xs-12 col-sm-9">
-          <p class="pull-right visible-xs">
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Ver platos</button>
-          </p>
-          <div class="jumbotron">
-            
-            <h1>Mis Recetas</h1>
-            <p>En esta sección quiero compartir con ustedes todos los ingredientes de mis platos, para que a los tengan en cuenta a la hora de hacer sus pedidos</p>
-          </div>
-          <div class="row" id="platos_recetas_sopas">
-            <div id="plato" class="col-6 col-sm-6 col-lg-4">
-              <img class="img-circle" src="/static/images/chupe.jpg" alt="Generic placeholder image" >
-              <h2><strong>Chupe</strong></h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-success" href="#" role="button" data-toggle="modal" data-target="#platoModal">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div id="plato" class="col-6 col-sm-6 col-lg-4">
-              <img class="img-circle" src="/static/images/sopa_alcachofas.jpg" alt="Generic placeholder image" >
-              <h2 ><strong>Sopa de Alcachofas</strong></h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-success" href="#" role="button">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div id="plato" class="col-6 col-sm-6 col-lg-4">
-              <img class="img-circle" src="/static/images/sopa_arvejas.jpg" alt="Generic placeholder image" >
-              <h2><strong>Sopa de Arvejas</strong></h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-success" href="#" role="button">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div id="plato" class="col-6 col-sm-6 col-lg-4">
-              <img class="img-circle" src="/static/images/chupe.jpg" alt="Generic placeholder image" >
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-success" href="#" role="button">View details &raquo;</a></p>
-            </div><!--/span-->
-            <div id="plato" class="col-6 col-sm-6 col-lg-4">
-              <img class="img-circle" src="/static/images/chupe.jpg" alt="Generic placeholder image" >
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn btn-success" href="#" role="button">View details &raquo;</a></p>
-            </div><!--/span-->
-            
-          </div><!--/row-->
-        </div><!--/span-->
+          
+          {% block content %}{% endblock %}
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
           <div class="list-group">
             <a href="#" class="list-group-item" id ="selectP">Seleccione tipo plato</a>
-            <a href="#" class="list-group-item" id ="cr">Carnes Rojas</a>
-            <a href="#" class="list-group-item" id ="cb">Carnes Blancas</a>
-            <a href="#" class="list-group-item" id ="pasta">Pastas</a>
-            <a href="#" class="list-group-item" id ="sopas">Sopas</a>
-            <a href="#" class="list-group-item" id ="ens">Ensaladas</a>
-            <a href="#" class="list-group-item" id ="ens">Mariscos</a>
+            {% for t in tipos %}
+            <a href="{% url "recetas" t.slug_tipo%}" class="list-group-item" id ="ens">{{t.nombre}}</a>
+            {% endfor %}
             
           </div>
         </div><!--/span-->
@@ -119,36 +74,6 @@
     </div><!--/.container-->
 
 
-    <div  class="modal fade" id="platoModal" tabindex="-1" role="dialog" aria-labelledby="platoModalLabel" aria-hidden="true">
-                 <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                          <h3 class="modal-title" id="platoModalLabel">Chupe</h3>
-                        </div>
-                        <div class="modal-body">
-                          <img src="/static/images/chupe.jpg" class="img-thumbnail" alt="">
-                          <strong>Chupe de Pollo</strong></br>
-                          <strong>El chupe es una sopa muy tradicional en América Latina, especialmente en Perú pero que se ha hehco un hueco en la cocina venezolana. Se puede hacer de camarones, de gallina o de res, entre otras cosas, pero en esta ocasión, pero el que yo preparo es de pollo.</strong>
-                          </br>
-                          </br>
-                          <strong><h4>Ingredientes</h4></strong></br>
-                          <ul>
-                            <li>Pollo 100gramos</li>
-                            <li>Mazorca 100gramos</li>
-                            <li>Crema de leche 10ml</li>
-                            <li>Zanahoria 50gramos</li>
-                            <li>Papa 100gramos</li>
-                          </ul>
-
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                          
-                        </div>
-                      </div><!-- /.modal-content -->
-                    </div><!-- /.modal-dialog -->
-                </div><!-- /.modal -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
