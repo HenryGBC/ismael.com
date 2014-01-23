@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response,get_object_or_404, render
 from django.template.context import RequestContext
-from .models import Plato, Ingrediente, Tipo, Menu
+from .models import Plato, Ingrediente, Tipo, Menu, Email
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
@@ -19,6 +19,9 @@ def detalles(request, slug_view):
 	slug_tipo = tipo.slug_tipo
 	template = "detalles.html"
 	ingredientes = plato.ingredientes.all()
-	
-
 	return render(request,template,locals())
+
+def emails(request):
+	email_index = request.GET['email']
+	email = Email(email=email_index)
+	email.save()

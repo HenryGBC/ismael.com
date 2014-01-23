@@ -16,5 +16,5 @@ urlpatterns = patterns('',
     
     url(r'^recetas/([^/]+)$', 'app.views.recetas', name='recetas'),
     url(r'^platos/([^/]+)$', 'app.views.detalles', name='detalles'),
-    
+    url(r'^email/$', 'app.views.emails', name='emails'),
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
