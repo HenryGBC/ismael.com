@@ -67,8 +67,8 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#contact">Menú del domingo</a></li>
+                <li class="active"><a href="#">Inicio</a></li>
+                <li><a href="{% url "menu" %}">Menú del domingo</a></li>
                 <li><a href="{% url "recetas" "sopas" %}">Mis Recetas</a></li>
 
               </ul>
@@ -143,8 +143,8 @@
         <form action="">
           
           <input type="email" class="form-control" id="campo_email"
-               placeholder="@ Email" >
-          <input type="submit" class="btn btn-success" value="Registrarse" id="registrarse">
+               placeholder="@ Email" required />
+          <input type="submit" class="btn btn-success" value="Registrarse" id="registrarse" />
           <div id ="alertReg" class="alert alert-success alert-dismissable">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
               <strong>Gracias por registrarte, estaremos en contacto</strong> 

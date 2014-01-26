@@ -30,3 +30,7 @@ footer #gplus:after{content:"\e604";font-family:iconos;color:#f00}
 .img-thumbnail{width:220px;height:150px}
 #tipo{float:right;background-color:rgba(255,89,0,0.8);padding:.2em}
 #imgPlato img{width:400px;height:250px}
+#menu{background:rgba(255,255,255,0.7);width:60%;position:relative;left:250px;border-radius:5px;border:2px solid #000}
+#imgMenu{width:300px;height:180px}
+@media screen and (max-width: 768px){#menu{width:100%;left:0}
+}

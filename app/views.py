@@ -25,3 +25,9 @@ def emails(request):
 	email_index = request.GET['email']
 	email = Email(email=email_index)
 	email.save()
+
+def menu(request):
+	menu = get_object_or_404(Menu, pk=1)
+	plato = get_object_or_404(Plato, nombre=menu.plato)
+	template = "menu.html"
+	return render(request,template,locals())

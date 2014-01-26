@@ -41,38 +41,25 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="/">Inicio</a></li>
-            <li><a href="#about">Menú del domingo</a></li>
-            <li class ="active"><a href="#">Mis Recetas</a></li>
+            <li class ="active"><a href="#">Menú del domingo</a></li>
+            <li ><a href="{% url "recetas" "pastas" %}">Mis Recetas</a></li>
           </ul>
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
     </div><!-- /.navbar -->
 
-    <div class="container">
-
-      <div class="row row-offcanvas row-offcanvas-right">
-          
-          {% block content %}{% endblock %}
-
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-          <div class="list-group">
-            <a href="#" class="list-group-item" id ="selectP">Seleccione tipo plato</a>
-            {% for t in tipos %}
-            <a href="{% url "recetas" t.slug_tipo%}" class="list-group-item" id ="ens">{{t.nombre}}</a>
-            {% endfor %}
-            
-          </div>
-        </div><!--/span-->
-      </div><!--/row-->
-
-      <hr>
-
-      <footer>
-        <p>&copy; Ismael</p>
-      </footer>
-
-    </div><!--/.container-->
-
+    <section>
+      <div class="row " id="menu">
+        <div class="col-md-6 col-md-offset-3">
+          <img  id="imgMenu" class="featurette-image img-responsive img-thumbnail" src="{{ MEDIA_URL }}{{ plato.img }}" alt="Generic placeholder image">
+        </div>
+         <div class="col-md-6 col-md-offset-3">
+          <h2>{{menu.plato}}</h2>
+          <h2>{{menu.precio}} Bsf</h2>
+          <h2>Para el domingo {{menu.fecha.day}}</h2>
+        </div>
+      </div>
+    </section>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
